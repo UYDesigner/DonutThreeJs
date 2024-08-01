@@ -8,39 +8,39 @@ const canvas = document.querySelector('canvas.webgl')
 /**
  * Loaders
  */
-const loadingBarElement = document.querySelector('.loading-bar')
-const bodyElement = document.querySelector('body')
-const loadingManager = new THREE.LoadingManager(
-    () => {
-        window.setTimeout(() => {
-            gsap.to(overlayMaterial.uniforms.uAlpha, {
-                duration: 3,
-                value: 0,
-                delay: 1
-            })
-            gsap.to(overlayMaterial.uniforms.uAlpha, {
-                duration: 3,
-                value: 0,
-                delay: 1
-            })
+// const loadingBarElement = document.querySelector('.loading-bar')
+// const bodyElement = document.querySelector('body')
+// const loadingManager = new THREE.LoadingManager(
+//     () => {
+//         window.setTimeout(() => {
+//             gsap.to(overlayMaterial.uniforms.uAlpha, {
+//                 duration: 3,
+//                 value: 0,
+//                 delay: 1
+//             })
+//             gsap.to(overlayMaterial.uniforms.uAlpha, {
+//                 duration: 3,
+//                 value: 0,
+//                 delay: 1
+//             })
 
-            loadingBarElement.classList.add('ended')
-            bodyElement.classList.add('.loaded')
-            loadingBarElement.style.transform = ''
+//             loadingBarElement.classList.add('ended')
+//             bodyElement.classList.add('.loaded')
+//             loadingBarElement.style.transform = ''
 
-        }, 500)
-    },
-    (itemUrl, itemsLoaded, itemsTotal) => {
-        console.log(itemUrl, itemsLoaded, itemsTotal)
-        const progressRatio = itemsLoaded / itemsTotal
-        loadingBarElement.style.transform = `scaleX(${progressRatio})`
-        console.log(progressRatio)
-    },
-    () => {
+//         }, 500)
+//     },
+//     (itemUrl, itemsLoaded, itemsTotal) => {
+//         console.log(itemUrl, itemsLoaded, itemsTotal)
+//         const progressRatio = itemsLoaded / itemsTotal
+//         loadingBarElement.style.transform = `scaleX(${progressRatio})`
+//         console.log(progressRatio)
+//     },
+//     () => {
 
-    }
-)
-const gltfLoader = new THREE.GLTFLoader(loadingManager)
+//     }
+// )
+const gltfLoader = new THREE.GLTFLoader()
 
 /**
  *  Textures
